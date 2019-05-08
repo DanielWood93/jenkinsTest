@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages {
+        stage('cd') {
+            steps {
+                cd deploy
+            }
+        }
+        
+        stage('Prepare') {
+            steps {
+                echo "..."
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying..'
+                ./deploy.sh
+            }
+        }
+
+        stage('Verify') {
+            steps {
+                echo "Verifying.."
+            }
+        }
+    }
+}
