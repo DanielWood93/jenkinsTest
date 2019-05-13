@@ -1,9 +1,4 @@
 # Starter pipeline
-- task: AzureCLI@1
-  inputs:
-    azureSubscription: 'Extra subscription(36bc5631-9bc1-4fc1-be3b-60c5b9bec8ab)'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az group list'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -17,6 +12,12 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+- task: AzureCLI@1
+  inputs:
+    azureSubscription: 'Extra subscription(36bc5631-9bc1-4fc1-be3b-60c5b9bec8ab)'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az group list'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
